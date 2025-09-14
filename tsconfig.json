@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "allowJs": true,
     "esModuleInterop": true,
     "incremental": true,
@@ -10,7 +11,15 @@
     "moduleResolution": "bundler",
     "noEmit": true,
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@app/*": ["app/*"],
+      "@hooks/*": ["hooks/*"],
+      "@utils/*": ["utils/*"],
+      "@fonts/*": ["fonts/*"],
+      "@docs/*": ["docs/*"],
+      "@types/*": ["types/*"],
+      "@lib/*": ["lib/*"],
+      "@public/*": ["public/*"]
     },
     "plugins": [
       {

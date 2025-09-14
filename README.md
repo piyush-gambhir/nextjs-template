@@ -13,7 +13,7 @@ Starter template for modern, self‑hosted Next.js apps with TypeScript, pnpm, P
 - `app/` – routes, layouts, pages
 - `hooks/` – reusable client hooks (exported via `hooks/index.ts`)
 - `utils/` – typed helpers (browser/server)
-- `fonts/` – Google + local fonts
+- `fonts/` – Google fonts + optional local fonts
 - `docs/` – conventions and usage (`hooks.md`, `utils.md`, `docker.md`, `code-style.md`)
 - `env.ts` – typed env via `@t3-oss/env-nextjs` + `zod`
 
@@ -32,7 +32,7 @@ Open `http://localhost:3000` in your browser.
 **Environment**
 - Copy `.env.example` to `.env` and set values.
 - Public base URL used by utils: `NEXT_PUBLIC_APP_URL`.
-- See `env.ts` for full schema.
+- `env.ts` provides a minimal typed env scaffold; add vars as needed.
 
 **Formatting & Linting**
 - Format all: `pnpm format`
@@ -52,5 +52,11 @@ Open `http://localhost:3000` in your browser.
 - Naming conventions: `docs/naming-conventions.md`
 
 **Notes**
-- Fonts configured with `next/font` (Google + local); see `fonts/`.
+- Fonts configured with `next/font`.
+  - Google fonts are centralized in `fonts/google-fonts.ts` for consistency.
+  - Local fonts are optional: heavy font files are not included. Use `fonts/local-fonts.ts` as a stub and replace with your `localFont({ src: [...] })` config when needed.
 - Import hooks via `@/hooks`: `import { useFetch, useLocalStorage } from '@/hooks'`.
+
+**Bundle Analyzer**
+- Analyze bundle sizes: `pnpm analyze`
+  - This sets `ANALYZE=true` and uses `@next/bundle-analyzer`.

@@ -1,35 +1,19 @@
-// Local Font
-import localFont from 'next/font/local';
+// Optional Local Font stub
+//
+// We intentionally avoid bundling large local font assets in the template.
+// This file exports a type‑compatible stub so you can wire up local fonts
+// later without changing imports across the app.
+//
+// Enable real local fonts:
+// 1) Add your font files under `fonts/YourFont/`.
+// 2) Replace the stub below with a `localFont({ src: [...] })` call.
 
-export const NeueMontreal = localFont({
-  src: [
-    {
-      path: './PPNeueMontreal/PPNeueMontreal-Thin.woff2',
-      weight: '100',
-      style: 'normal',
-    },
-    {
-      path: './PPNeueMontreal/PPNeueMontreal-Book.woff2',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: './PPNeueMontreal/PPNeueMontreal-Medium.woff2',
-      weight: '500',
-      style: 'normal',
-    },
-    {
-      path: './PPNeueMontreal/PPNeueMontreal-Bold.woff2',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: './PPNeueMontreal/PPNeueMontreal-SemiBolditalic.woff2',
-      weight: '600',
-      style: 'italic',
-    },
-  ],
-  display: 'swap',
-  // Use a CSS custom property consistent with other fonts
+import type localFont from 'next/font/local';
+
+type LocalFont = ReturnType<typeof localFont>;
+
+export const NeueMontreal = {
+  className: '',
   variable: '--font-neue-montreal',
-});
+  style: {},
+} as unknown as LocalFont;
