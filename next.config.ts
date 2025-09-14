@@ -1,7 +1,8 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Enable smaller runtime image via .next/standalone output
+  output: 'standalone',
 };
 
 export default nextConfig;
