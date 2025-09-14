@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+**Next.js Template**
 
-## Getting Started
+Starter template for modern, self‑hosted Next.js apps with TypeScript, pnpm, Prettier, robust hooks/utilities, and a production Dockerfile (Node 22 LTS, standalone output).
 
-First, run the development server:
+**Features**
+- TypeScript, App Router, SSR supported
+- Prettier + import sorting + Tailwind plugin
+- Useful hooks in `hooks/` with a barrel export
+- Generic utilities in `utils/` (string, number, promise, mdx, zod, etc.)
+- Docker multi‑stage image on Node 22 LTS, non‑root runtime, standalone output
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**Structure**
+- `app/` – routes, layouts, pages
+- `hooks/` – reusable client hooks (exported via `hooks/index.ts`)
+- `utils/` – typed helpers (browser/server)
+- `fonts/` – Google + local fonts
+- `docs/` – conventions and usage (`hooks.md`, `utils.md`, `docker.md`, `code-style.md`)
+- `env.ts` – typed env via `@t3-oss/env-nextjs` + `zod`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Requirements**
+- Node 18+ (Node 22 LTS recommended)
+- pnpm 9+ (managed via Corepack is recommended)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Getting Started**
+- Install deps: `pnpm install`
+- Dev server: `pnpm dev`
+- Build: `pnpm build`
+- Start: `pnpm start`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open `http://localhost:3000` in your browser.
 
-## Learn More
+**Environment**
+- Copy `.env.example` to `.env` and set values.
+- Public base URL used by utils: `NEXT_PUBLIC_APP_URL`.
+- See `env.ts` for full schema.
 
-To learn more about Next.js, take a look at the following resources:
+**Formatting & Linting**
+- Format all: `pnpm format`
+- Check format: `pnpm format:check`
+- Lint: `pnpm lint`
+- Pre-commit runs `lint-staged` to format and fix staged files.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Docker**
+- Build: `docker build -t nextjs-template:prod .`
+- Run: `docker run --rm -p 3000:3000 -e NEXT_PUBLIC_APP_URL=http://localhost:3000 nextjs-template:prod`
+- Uses Next.js `output: 'standalone'` – SSR/SSG/ISR/API routes supported.
+  - See `docs/docker.md` for details.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Hooks & Utils**
+- Hooks reference: `docs/hooks.md`
+- Utils reference: `docs/utils.md`
+- Naming conventions: `docs/naming-conventions.md`
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Notes**
+- Fonts configured with `next/font` (Google + local); see `fonts/`.
+- Import hooks via `@/hooks`: `import { useFetch, useLocalStorage } from '@/hooks'`.
