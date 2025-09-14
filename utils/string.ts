@@ -19,4 +19,3 @@ export function titleCase(input: string): string {
     .map((w) => capitalize(w))
     .join(' ');
 }
-w;

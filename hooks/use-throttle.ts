@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useEffect, useRef, useState } from 'react';
 
@@ -27,4 +27,3 @@ export function useThrottle<T>(value: T, delay: number): T {
 
   return throttled;
 }
-

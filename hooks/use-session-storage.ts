@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
@@ -51,4 +51,3 @@ export function useSessionStorage<T>(
 
   return [storedValue, setStoredValue, remove];
 }
-

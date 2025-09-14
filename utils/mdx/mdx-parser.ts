@@ -23,4 +23,3 @@ export function mdxParser(fileContent: string): {
 
   return { metadata, content };
 }
-

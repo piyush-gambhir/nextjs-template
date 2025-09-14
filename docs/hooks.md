@@ -53,8 +53,8 @@ A curated set of typed, reusable React hooks for Next.js apps. All hooks are cli
   - Runs a callback every `delay` ms; pass `null` to stop.
 - useTimeout(callback, delay)
   - Runs a callback once after `delay` ms; pass `null` to cancel.
- - useInterval(callback, delay)
-   - Runs a callback every `delay` ms; pass `null` to stop.
+- useInterval(callback, delay)
+  - Runs a callback every `delay` ms; pass `null` to stop.
 
 ## Utilities
 

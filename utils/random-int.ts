@@ -4,4 +4,3 @@ export function randomInt(min: number, max: number): number {
   const maxFloor = Math.floor(max);
   return Math.floor(Math.random() * (maxFloor - minCeil + 1)) + minCeil;
 }
-
