@@ -35,7 +35,14 @@ export function useFetch<T = unknown>(url: string, options: UseFetchOptions<T> =
       setData(result);
       onSuccess?.(result);
     } catch (err) {
-      if ((err as any)?.name === 'AbortError') return;
+      const isAbortError =
+        err instanceof DOMException
+          ? err.name === 'AbortError'
+          : typeof err === 'object' &&
+            err !== null &&
+            'name' in err &&
+            (err as { name: string }).name === 'AbortError';
+      if (isAbortError) return;
       setError(err);
       onError?.(err);
     } finally {

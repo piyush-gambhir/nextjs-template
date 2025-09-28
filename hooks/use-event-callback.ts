@@ -2,10 +2,14 @@
 
 import { useCallback, useRef } from 'react';
 
-export function useEventCallback<T extends (...args: any[]) => any>(fn: T): T {
+export function useEventCallback<T extends (...args: unknown[]) => unknown>(fn: T): T {
   const ref = useRef(fn);
   ref.current = fn;
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  return useCallback(((...args: any[]) => ref.current(...args)) as T, []);
+  const stableCallback = useCallback(
+    (...args: Parameters<T>): ReturnType<T> => ref.current(...args),
+    [],
+  );
+
+  return stableCallback as T;
 }

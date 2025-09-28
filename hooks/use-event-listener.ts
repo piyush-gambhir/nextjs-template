@@ -30,14 +30,15 @@ export function useEventListener(
 
   useEffect(() => {
     const target = element ?? (typeof window !== 'undefined' ? window : undefined);
-    const isSupported = !!target && 'addEventListener' in target;
-    if (!isSupported) return;
+    if (!target || !('addEventListener' in target)) return;
 
-    const eventListener = (event: Event) => savedHandler.current(event);
+    const eventListener: EventListener = (event) => {
+      savedHandler.current(event as never);
+    };
 
-    (target as any).addEventListener(eventName, eventListener);
+    target.addEventListener(eventName as string, eventListener);
     return () => {
-      (target as any).removeEventListener(eventName, eventListener);
+      target.removeEventListener(eventName as string, eventListener);
     };
   }, [eventName, element]);
 }
