@@ -1,13 +1,16 @@
 'use client';
 
-import { useCallback, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
-export function useEventCallback<T extends (...args: unknown[]) => unknown>(fn: T): T {
-  const ref = useRef(fn);
-  ref.current = fn;
+export function useEventCallback<T extends (...args: never[]) => unknown>(fn: T): T {
+  const ref = useRef<T>(fn);
+
+  useEffect(() => {
+    ref.current = fn;
+  });
 
   const stableCallback = useCallback(
-    (...args: Parameters<T>): ReturnType<T> => ref.current(...args),
+    (...args: Parameters<T>): ReturnType<T> => ref.current(...args) as ReturnType<T>,
     [],
   );
 

@@ -4,16 +4,23 @@ import { useEffect, useRef, useState } from 'react';
 
 export function useThrottle<T>(value: T, delay: number): T {
   const [throttled, setThrottled] = useState(value);
-  const lastRan = useRef<number>(Date.now());
+  const lastRan = useRef<number | null>(null);
   const timeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
+    const now = Date.now();
+
     const handler = () => {
       setThrottled(value);
       lastRan.current = Date.now();
     };
 
-    const remaining = delay - (Date.now() - lastRan.current);
+    if (lastRan.current === null) {
+      handler();
+      return;
+    }
+
+    const remaining = delay - (now - lastRan.current);
     if (remaining <= 0) {
       handler();
     } else {
