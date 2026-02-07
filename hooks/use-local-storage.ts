@@ -18,7 +18,6 @@ export function useLocalStorage<T>(
     deserializer = JSON.parse as (v: string) => T,
     sync = true,
   } = options;
-  const isFirstLoad = useRef(true);
 
   const readValue = (): T => {
     if (typeof window === 'undefined') {
@@ -38,32 +37,49 @@ export function useLocalStorage<T>(
 
   const [storedValue, setStoredValue] = useState<T>(readValue);
 
+  // Track if we should skip the first sync (component just mounted)
+  const isMountedRef = useRef(false);
+
   useEffect(() => {
+    // Skip writing to localStorage on first render (already read from it)
+    if (!isMountedRef.current) {
+      isMountedRef.current = true;
+      return;
+    }
+
     try {
       const serialized = serializer(storedValue);
       window.localStorage.setItem(key, serialized);
     } catch (error) {
-      console.error(error);
+      console.error('useLocalStorage write error:', error);
     }
   }, [key, storedValue, serializer]);
 
   useEffect(() => {
     if (!sync) return;
+
     const handler = (e: StorageEvent) => {
+      // Only react to changes for our specific key
       if (e.key !== key) return;
-      if (e.newValue === null) return;
+
+      // Handle removal
+      if (e.newValue === null) {
+        setStoredValue(typeof initialValue === 'function' ? (initialValue as () => T)() : initialValue);
+        return;
+      }
+
+      // Handle updates from other tabs
       try {
         const next = deserializer(e.newValue);
-        // Avoid setting twice on the tab that originated the change
-        if (!isFirstLoad.current) setStoredValue(next);
+        setStoredValue(next);
       } catch (err) {
-        console.error(err);
+        console.error('useLocalStorage sync error:', err);
       }
     };
+
     window.addEventListener('storage', handler);
-    isFirstLoad.current = false;
     return () => window.removeEventListener('storage', handler);
-  }, [key, deserializer, sync]);
+  }, [key, deserializer, sync, initialValue]);
 
   const remove = () => {
     try {

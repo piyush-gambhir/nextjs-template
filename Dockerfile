@@ -1,4 +1,5 @@
 # Multi-stage Dockerfile for Next.js (Node LTS, pnpm, standalone runtime)
+# Optimized for caching and minimal image size
 
 # Base settings shared across stages
 FROM node:22-alpine AS base
@@ -14,14 +15,21 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 
 # Install dependencies (separate layer for better caching)
 FROM base AS deps
-COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile
+# Copy only dependency files first for better layer caching
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml* ./
+# Install with frozen lockfile for reproducible builds
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
+    pnpm install --frozen-lockfile --prod=false
 
 # Build stage
 FROM base AS build
+# Copy node_modules from deps stage
 COPY --from=deps /app/node_modules ./node_modules
+# Copy all source files
 COPY . .
-RUN pnpm run build
+# Build the application with caching
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
+    pnpm run build
 
 # Production runtime using Next.js standalone output
 FROM node:22-alpine AS runner
