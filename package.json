@@ -33,7 +33,7 @@
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "tailwind-merge": "^3.7.0",
-    "uuid": "^13.0.2",
+    "uuid": "^14.0.3",
     "zod": "^4.6.6"
   },
   "devDependencies": {
@@ -58,7 +58,7 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "husky": "^9.1.7",
     "jsdom": "^25.0.1",
-    "lint-staged": "^16.4.0",
+    "lint-staged": "^17.6.0",
     "prettier": "^3.9.10",
     "prettier-plugin-jsdoc": "^1.8.1",
     "prettier-plugin-packagejson": "^3.0.2",
