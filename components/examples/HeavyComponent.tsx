@@ -20,7 +20,7 @@ export default function HeavyComponent({ title }: { title: string }) {
       <h2 className="mb-4 text-xl font-semibold">{title}</h2>
       <p className="text-sm text-gray-600 dark:text-gray-400">
         This component was loaded dynamically using next/dynamic to reduce the initial bundle size.
-        It only loads when needed, improving your app's performance.
+        It only loads when needed, improving your app&apos;s performance.
       </p>
       <div className="mt-4 space-y-2">
         <div className="h-4 w-full animate-pulse rounded bg-gray-200 dark:bg-gray-800"></div>

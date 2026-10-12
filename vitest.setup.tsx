@@ -1,4 +1,6 @@
 import '@testing-library/jest-dom/vitest';
+import type { ImgHTMLAttributes } from 'react';
+import { vi } from 'vitest';
 
 // Mock Next.js router
 vi.mock('next/navigation', () => ({
@@ -22,8 +24,13 @@ vi.mock('next/navigation', () => ({
 
 // Mock Next.js image component
 vi.mock('next/image', () => ({
-  default: (props: any) => {
-    // eslint-disable-next-line @next/next/no-img-element
-    return <img {...props} alt={props.alt} />;
+  default: (props: ImgHTMLAttributes<HTMLImageElement>) => {
+     
+    return (
+      <img
+        {...props}
+        alt={props.alt}
+      />
+    );
   },
 }));

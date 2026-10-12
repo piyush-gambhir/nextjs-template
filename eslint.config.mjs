@@ -21,6 +21,8 @@ export default tseslint.config(
       ...hooksPlugin.configs.recommended.rules,
       "react/react-in-jsx-scope": "off",
       "react/prop-types": "off",
+      // New in eslint-plugin-react-hooks 7: flags the data-fetching hook example.
+      "react-hooks/set-state-in-effect": "warn",
     },
     settings: {
       react: {

@@ -7,7 +7,7 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     globals: true,
-    setupFiles: ['./vitest.setup.ts'],
+    setupFiles: ['./vitest.setup.tsx'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
@@ -17,7 +17,7 @@ export default defineConfig({
         '**/*.config.*',
         '**/dist/**',
         '**/*.d.ts',
-        'vitest.setup.ts',
+        'vitest.setup.tsx',
       ],
     },
   },
