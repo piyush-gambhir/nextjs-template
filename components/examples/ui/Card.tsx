@@ -1,4 +1,4 @@
-import { HTMLAttributes, ReactNode } from 'react';
+import { HTMLAttributes } from 'react';
 import { cn } from '@/utils/cn';
 
 /**
@@ -83,7 +83,7 @@ export function CardHeader({ title, description, children, className, ...props }
   );
 }
 
-export interface CardContentProps extends HTMLAttributes<HTMLDivElement> {}
+export type CardContentProps = HTMLAttributes<HTMLDivElement>;
 
 export function CardContent({ children, className, ...props }: CardContentProps) {
   return (
@@ -93,7 +93,7 @@ export function CardContent({ children, className, ...props }: CardContentProps)
   );
 }
 
-export interface CardFooterProps extends HTMLAttributes<HTMLDivElement> {}
+export type CardFooterProps = HTMLAttributes<HTMLDivElement>;
 
 export function CardFooter({ children, className, ...props }: CardFooterProps) {
   return (

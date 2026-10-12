@@ -9,7 +9,7 @@ Production-ready starter template for modern, self-hosted Next.js apps with Type
 - **TypeScript** with strict mode enabled
 - **Tailwind CSS v4** for styling
 - **pnpm** for fast, efficient package management
-- **Node 22 LTS** optimized Docker setup
+- **Node 24 LTS** optimized Docker setup
 
 ### Developer Experience
 - **Prettier** with import sorting and Tailwind class sorting
@@ -82,7 +82,7 @@ nextjs-template/
 ├── __tests__/               # Vitest tests
 ├── .github/workflows/       # CI/CD pipelines
 ├── Dockerfile              # Optimized production build
-├── vitest.config.ts        # Test configuration
+├── vitest.config.mts       # Test configuration
 └── env.ts                  # Typed environment variables
 ```
 
@@ -91,8 +91,8 @@ nextjs-template/
 ## Quick Start
 
 ### Prerequisites
-- **Node.js** 18+ (Node 22 LTS recommended)
-- **pnpm** 9+ (install via `corepack enable`)
+- **Node.js** 24+ (Node 24 LTS recommended)
+- **pnpm** 12+ (install via `corepack enable`)
 
 ### Installation
 
@@ -245,7 +245,7 @@ docker run --rm -p 3000:3000 \
 - Optimized layer caching with pnpm
 - Next.js standalone output
 - Non-root user for security
-- Node 22 LTS Alpine base
+- Node 24 LTS Alpine base
 
 See `docs/docker.md` for advanced configuration.
 
