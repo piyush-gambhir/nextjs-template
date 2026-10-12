@@ -82,7 +82,7 @@ nextjs-template/
 ├── __tests__/               # Vitest tests
 ├── .github/workflows/       # CI/CD pipelines
 ├── Dockerfile              # Optimized production build
-├── vitest.config.ts        # Test configuration
+├── vitest.config.mts       # Test configuration
 └── env.ts                  # Typed environment variables
 ```
 
