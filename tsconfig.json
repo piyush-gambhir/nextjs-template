@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "baseUrl": ".",
     "esModuleInterop": true,
     "incremental": true,
     "isolatedModules": true,
@@ -12,14 +11,14 @@
     "noEmit": true,
     "paths": {
       "@/*": ["./*"],
-      "@app/*": ["app/*"],
-      "@docs/*": ["docs/*"],
-      "@fonts/*": ["fonts/*"],
-      "@hooks/*": ["hooks/*"],
-      "@lib/*": ["lib/*"],
-      "@public/*": ["public/*"],
-      "@types/*": ["types/*"],
-      "@utils/*": ["utils/*"]
+      "@app/*": ["./app/*"],
+      "@docs/*": ["./docs/*"],
+      "@fonts/*": ["./fonts/*"],
+      "@hooks/*": ["./hooks/*"],
+      "@lib/*": ["./lib/*"],
+      "@public/*": ["./public/*"],
+      "@types/*": ["./types/*"],
+      "@utils/*": ["./utils/*"]
     },
     "plugins": [
       {
