@@ -2,7 +2,7 @@
 # Optimized for caching and minimal image size
 
 # Base settings shared across stages
-FROM node:22-alpine AS base
+FROM node:24.21.0-alpine AS base
 WORKDIR /app
 ENV NODE_ENV=production \
     NEXT_TELEMETRY_DISABLED=1 \
@@ -11,7 +11,7 @@ ENV PATH="$PNPM_HOME:$PATH"
 # Some Next.js deps on Alpine require this for libc compatibility
 RUN apk add --no-cache libc6-compat
 # Use corepack to manage pnpm safely
-RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN corepack enable && corepack prepare pnpm@12.11.2 --activate
 
 # Install dependencies (separate layer for better caching)
 FROM base AS deps
@@ -32,7 +32,7 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
     pnpm run build
 
 # Production runtime using Next.js standalone output
-FROM node:22-alpine AS runner
+FROM node:24.21.0-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production \
     NEXT_TELEMETRY_DISABLED=1 \
