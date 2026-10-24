@@ -3,10 +3,11 @@ import { NextRequest, NextResponse } from 'next/server';
 /**
  * Example Route Handler
  *
- * Route Handlers allow you to create custom request handlers using Web APIs.
- * They replace API Routes from Pages Router.
+ * Route Handlers allow you to create custom request handlers using Web APIs. They replace API
+ * Routes from Pages Router.
  *
  * Key features:
+ *
  * - Support all HTTP methods (GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS)
  * - Can be async
  * - Use Request and Response Web APIs
@@ -23,10 +24,7 @@ export const runtime = 'nodejs';
 // Optional: Configure route segment options
 export const dynamic = 'force-dynamic'; // or 'auto', 'force-static', 'error'
 
-/**
- * GET /api/example
- * Example of a simple GET handler
- */
+/** GET /api/example Example of a simple GET handler */
 export async function GET(request: NextRequest) {
   // Access search params
   const searchParams = request.nextUrl.searchParams;
@@ -42,10 +40,7 @@ export async function GET(request: NextRequest) {
   });
 }
 
-/**
- * POST /api/example
- * Example of a POST handler with request body
- */
+/** POST /api/example Example of a POST handler with request body */
 export async function POST(request: NextRequest) {
   try {
     // Parse JSON body
@@ -82,10 +77,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-/**
- * PUT /api/example
- * Example of a PUT handler
- */
+/** PUT /api/example Example of a PUT handler */
 export async function PUT(request: NextRequest) {
   try {
     const body = await request.json();
@@ -100,10 +92,7 @@ export async function PUT(request: NextRequest) {
   }
 }
 
-/**
- * DELETE /api/example
- * Example of a DELETE handler
- */
+/** DELETE /api/example Example of a DELETE handler */
 export async function DELETE(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const id = searchParams.get('id');
@@ -118,10 +107,7 @@ export async function DELETE(request: NextRequest) {
   });
 }
 
-/**
- * OPTIONS /api/example
- * Handle CORS preflight requests
- */
+/** OPTIONS /api/example Handle CORS preflight requests */
 export async function OPTIONS() {
   return new NextResponse(null, {
     status: 204,

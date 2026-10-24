@@ -3,8 +3,8 @@ import { Suspense } from 'react';
 /**
  * Example: Streaming with Suspense
  *
- * This page demonstrates React Suspense boundaries for streaming content.
- * Benefits:
+ * This page demonstrates React Suspense boundaries for streaming content. Benefits:
+ *
  * - Show loading states for async components
  * - Stream content as it becomes ready (improves TTFB)
  * - Prevent blocking the entire page render
@@ -67,22 +67,34 @@ export default function StreamingPage() {
       <div className="grid gap-6 md:grid-cols-2">
         {/* Fast component (1s delay) */}
         <Suspense fallback={<LoadingCard title="Fast Component" />}>
-          <SlowComponent delay={1000} title="Fast Component" />
+          <SlowComponent
+            delay={1000}
+            title="Fast Component"
+          />
         </Suspense>
 
         {/* Medium component (2s delay) */}
         <Suspense fallback={<LoadingCard title="Medium Component" />}>
-          <SlowComponent delay={2000} title="Medium Component" />
+          <SlowComponent
+            delay={2000}
+            title="Medium Component"
+          />
         </Suspense>
 
         {/* Slow component (3s delay) */}
         <Suspense fallback={<LoadingCard title="Slow Component" />}>
-          <SlowComponent delay={3000} title="Slow Component" />
+          <SlowComponent
+            delay={3000}
+            title="Slow Component"
+          />
         </Suspense>
 
         {/* Very slow component (4s delay) */}
         <Suspense fallback={<LoadingCard title="Very Slow Component" />}>
-          <SlowComponent delay={4000} title="Very Slow Component" />
+          <SlowComponent
+            delay={4000}
+            title="Very Slow Component"
+          />
         </Suspense>
       </div>
 

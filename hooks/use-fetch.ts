@@ -14,8 +14,8 @@ export interface UseFetchOptions<T> {
 /**
  * Custom hook for data fetching with automatic cancellation and error handling.
  *
- * NOTE: For production apps, consider using SWR or React Query for better
- * request deduplication, caching, and performance optimization.
+ * NOTE: For production apps, consider using SWR or React Query for better request deduplication,
+ * caching, and performance optimization.
  *
  * @see https://swr.vercel.app/ - Recommended for most use cases
  */
@@ -62,7 +62,7 @@ export function useFetch<T = unknown>(url: string, options: UseFetchOptions<T> =
     } finally {
       setLoading(false);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+     
   }, [url, initStr, parser, onSuccess, onError]);
 
   useEffect(() => {

@@ -7,6 +7,7 @@ import { cn } from '@/utils/cn';
  * A flexible container component for grouping related content.
  *
  * Features:
+ *
  * - Multiple variants (default, bordered, elevated)
  * - Padding sizes (sm, md, lg)
  * - Hover effects (optional)
@@ -44,19 +45,11 @@ export function Card({
     lg: 'p-8',
   };
 
-  const hoverStyles = hover
-    ? 'hover:shadow-lg cursor-pointer'
-    : '';
+  const hoverStyles = hover ? 'hover:shadow-lg cursor-pointer' : '';
 
   return (
     <Component
-      className={cn(
-        baseStyles,
-        variants[variant],
-        paddings[padding],
-        hoverStyles,
-        className,
-      )}
+      className={cn(baseStyles, variants[variant], paddings[padding], hoverStyles, className)}
       {...props}
     >
       {children}
@@ -64,9 +57,7 @@ export function Card({
   );
 }
 
-/**
- * Card Subcomponents for better composition
- */
+/** Card Subcomponents for better composition */
 
 export interface CardHeaderProps extends HTMLAttributes<HTMLDivElement> {
   title?: string;
@@ -75,9 +66,14 @@ export interface CardHeaderProps extends HTMLAttributes<HTMLDivElement> {
 
 export function CardHeader({ title, description, children, className, ...props }: CardHeaderProps) {
   return (
-    <div className={cn('mb-4', className)} {...props}>
+    <div
+      className={cn('mb-4', className)}
+      {...props}
+    >
       {title && <h3 className="text-lg font-semibold">{title}</h3>}
-      {description && <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{description}</p>}
+      {description && (
+        <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{description}</p>
+      )}
       {children}
     </div>
   );
@@ -87,7 +83,10 @@ export type CardContentProps = HTMLAttributes<HTMLDivElement>;
 
 export function CardContent({ children, className, ...props }: CardContentProps) {
   return (
-    <div className={cn('text-sm', className)} {...props}>
+    <div
+      className={cn('text-sm', className)}
+      {...props}
+    >
       {children}
     </div>
   );
@@ -97,7 +96,10 @@ export type CardFooterProps = HTMLAttributes<HTMLDivElement>;
 
 export function CardFooter({ children, className, ...props }: CardFooterProps) {
   return (
-    <div className={cn('mt-4 flex items-center gap-2', className)} {...props}>
+    <div
+      className={cn('mt-4 flex items-center gap-2', className)}
+      {...props}
+    >
       {children}
     </div>
   );

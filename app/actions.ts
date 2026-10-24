@@ -3,11 +3,11 @@
 /**
  * Example Server Actions
  *
- * Server Actions are functions that run on the server and can be called from
- * Client Components. They're useful for mutations, form submissions, and
- * server-side operations.
+ * Server Actions are functions that run on the server and can be called from Client Components.
+ * They're useful for mutations, form submissions, and server-side operations.
  *
  * Key points:
+ *
  * - Must be marked with 'use server' directive
  * - Can only accept serializable arguments (no functions, classes, etc.)
  * - Automatically handle CSRF protection
@@ -19,9 +19,7 @@
 
 import { revalidatePath } from 'next/cache';
 
-/**
- * Example: Simple server action that processes form data
- */
+/** Example: Simple server action that processes form data */
 export async function submitForm(formData: FormData) {
   // Extract form data
   const name = formData.get('name')?.toString();
@@ -41,9 +39,7 @@ export async function submitForm(formData: FormData) {
   return { success: true, data: { name, email } };
 }
 
-/**
- * Example: Server action with authentication check
- */
+/** Example: Server action with authentication check */
 export async function authenticatedAction(data: { message: string }) {
   // In a real app, check authentication:
   // const session = await getSession();
@@ -62,9 +58,7 @@ export async function authenticatedAction(data: { message: string }) {
   return { success: true, message: 'Action completed successfully' };
 }
 
-/**
- * Example: Server action with try-catch error handling
- */
+/** Example: Server action with try-catch error handling */
 export async function safeServerAction(userId: string) {
   try {
     // Simulate database operation

@@ -6,8 +6,8 @@ import { useState } from 'react';
 /**
  * Example: Dynamic Import Usage
  *
- * This demonstrates how to use next/dynamic to lazy-load components.
- * Benefits:
+ * This demonstrates how to use next/dynamic to lazy-load components. Benefits:
+ *
  * - Reduces initial bundle size
  * - Improves Time to Interactive (TTI)
  * - Better performance for features not immediately visible

@@ -48,7 +48,14 @@ describe('Button Component', () => {
     });
 
     it('should have correct aria-label when loading', () => {
-      render(<Button loading aria-label="Submit">Submit</Button>);
+      render(
+        <Button
+          loading
+          aria-label="Submit"
+        >
+          Submit
+        </Button>,
+      );
       expect(screen.getByRole('button')).toHaveAttribute('aria-label', 'Submit - Loading');
     });
   });
@@ -81,7 +88,14 @@ describe('Button Component', () => {
       const handleClick = vi.fn();
       const user = userEvent.setup();
 
-      render(<Button disabled onClick={handleClick}>Click me</Button>);
+      render(
+        <Button
+          disabled
+          onClick={handleClick}
+        >
+          Click me
+        </Button>,
+      );
       await user.click(screen.getByRole('button'));
 
       expect(handleClick).not.toHaveBeenCalled();
@@ -91,7 +105,14 @@ describe('Button Component', () => {
       const handleClick = vi.fn();
       const user = userEvent.setup();
 
-      render(<Button loading onClick={handleClick}>Click me</Button>);
+      render(
+        <Button
+          loading
+          onClick={handleClick}
+        >
+          Click me
+        </Button>,
+      );
       await user.click(screen.getByRole('button'));
 
       expect(handleClick).not.toHaveBeenCalled();

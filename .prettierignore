@@ -8,3 +8,6 @@ build
 coverage
 out
 pnpm-lock.yaml
+
+# Bundled third-party agent skills
+.agents/skills

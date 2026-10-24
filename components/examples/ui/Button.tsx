@@ -7,6 +7,7 @@ import { cn } from '@/utils/cn';
  * Accessible Button Component
  *
  * This component demonstrates accessibility best practices:
+ *
  * - Proper ARIA attributes
  * - Keyboard navigation support
  * - Focus management
@@ -66,13 +67,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         ref={ref}
-        className={cn(
-          baseStyles,
-          variants[variant],
-          sizes[size],
-          fullWidth && 'w-full',
-          className,
-        )}
+        className={cn(baseStyles, variants[variant], sizes[size], fullWidth && 'w-full', className)}
         disabled={disabled || loading}
         aria-disabled={disabled || loading}
         aria-label={effectiveAriaLabel}
@@ -81,7 +76,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {loading && (
           <svg
-            className="-ml-1 mr-2 size-4 animate-spin"
+            className="mr-2 -ml-1 size-4 animate-spin"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"

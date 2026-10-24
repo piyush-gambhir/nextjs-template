@@ -28,7 +28,9 @@ They are here as **learning examples** and **starting points**. You should:
 ## Usage Examples
 
 ### Reference Pattern (Recommended)
+
 Look at the code and implement your own:
+
 ```typescript
 // Your component inspired by the example
 export function MyButton({ children, ...props }: MyButtonProps) {
@@ -37,12 +39,14 @@ export function MyButton({ children, ...props }: MyButtonProps) {
 ```
 
 ### Copy & Customize
+
 ```bash
 cp components/examples/ui/Button.tsx components/YourButton.tsx
 # Edit to match your design system
 ```
 
 ### Direct Use (Not Recommended for Production)
+
 ```typescript
 // Only for prototyping/learning
 import { Button } from '@/components/examples/ui/Button';

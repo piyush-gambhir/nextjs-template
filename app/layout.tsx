@@ -17,7 +17,8 @@ export const metadata: Metadata = {
     default: 'Next.js Template',
     template: '%s | Next.js Template',
   },
-  description: 'Modern Next.js starter template with TypeScript, Tailwind CSS, and essential utilities',
+  description:
+    'Modern Next.js starter template with TypeScript, Tailwind CSS, and essential utilities',
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'),
   keywords: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Template'],
   authors: [{ name: 'Your Name' }],
@@ -27,13 +28,15 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: '/',
     title: 'Next.js Template',
-    description: 'Modern Next.js starter template with TypeScript, Tailwind CSS, and essential utilities',
+    description:
+      'Modern Next.js starter template with TypeScript, Tailwind CSS, and essential utilities',
     siteName: 'Next.js Template',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Next.js Template',
-    description: 'Modern Next.js starter template with TypeScript, Tailwind CSS, and essential utilities',
+    description:
+      'Modern Next.js starter template with TypeScript, Tailwind CSS, and essential utilities',
   },
 };
 
