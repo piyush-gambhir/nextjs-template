@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
 
   // Bundle optimization
   experimental: {
+    agentUpgrade: 'security',
     // Automatically optimize imports from these packages for better tree-shaking
     optimizePackageImports: ['@/hooks', '@/utils'],
   },
