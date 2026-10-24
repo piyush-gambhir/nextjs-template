@@ -62,7 +62,6 @@ export function useFetch<T = unknown>(url: string, options: UseFetchOptions<T> =
     } finally {
       setLoading(false);
     }
-     
   }, [url, initStr, parser, onSuccess, onError]);
 
   useEffect(() => {

@@ -18,11 +18,12 @@
     "typecheck": "tsc --noEmit"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx,md,mdx,css,scss,json,yml,yaml}": [
+    "**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
       "prettier --write"
     ],
-    "**/*.{ts,tsx,js,jsx}": [
-      "eslint --fix"
+    "**/*.{md,mdx,css,scss,json,yml,yaml}": [
+      "prettier --write"
     ]
   },
   "dependencies": {
