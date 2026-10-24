@@ -64,7 +64,9 @@ export function useLocalStorage<T>(
 
       // Handle removal
       if (e.newValue === null) {
-        setStoredValue(typeof initialValue === 'function' ? (initialValue as () => T)() : initialValue);
+        setStoredValue(
+          typeof initialValue === 'function' ? (initialValue as () => T)() : initialValue,
+        );
         return;
       }
 

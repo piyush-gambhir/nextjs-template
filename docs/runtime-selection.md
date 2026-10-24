@@ -22,6 +22,7 @@ The Edge runtime runs on Vercel's Edge Network (or similar CDNs) and provides:
 - **Lower latency** - Reduced round-trip times
 
 **Use Edge runtime for:**
+
 - Proxy (middleware) - Always runs on Edge
 - Simple API routes with minimal dependencies
 - A/B testing and redirects
@@ -30,6 +31,7 @@ The Edge runtime runs on Vercel's Edge Network (or similar CDNs) and provides:
 - Header/cookie manipulation
 
 **Don't use Edge runtime for:**
+
 - Database operations (unless using Edge-compatible DBs)
 - Heavy computations
 - Large npm packages
@@ -80,12 +82,14 @@ export function proxy(request: NextRequest) {
 The Edge runtime has some restrictions:
 
 ### Not Available:
+
 - Native Node.js modules (`fs`, `path`, `child_process`, etc.)
 - Many npm packages that depend on Node.js APIs
 - Long-running operations (max 30 seconds on Vercel)
 - Large bundle sizes (limited to 1-4 MB depending on platform)
 
 ### Available:
+
 - Web APIs (`fetch`, `Response`, `Request`, `URL`, `crypto`)
 - Edge-compatible npm packages
 - Environment variables
@@ -127,12 +131,14 @@ To test if your code works on Edge:
 ## Edge-Compatible Packages
 
 Common packages that work on Edge:
+
 - `zod` - Schema validation
 - `jose` - JWT signing/verification
 - `@vercel/edge-config` - Edge config
 - `@upstash/redis` - Edge-compatible Redis
 
 Packages that **don't** work on Edge:
+
 - `prisma` (full version)
 - `bcrypt` (use `bcryptjs` instead)
 - `jsonwebtoken` (use `jose` instead)

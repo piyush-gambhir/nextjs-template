@@ -5,6 +5,7 @@ Production-ready starter template for modern, self-hosted Next.js apps with Type
 ## Features
 
 ### Core Stack
+
 - **Next.js 16** with App Router and React 19
 - **TypeScript** with strict mode enabled
 - **Tailwind CSS v4** for styling
@@ -12,6 +13,7 @@ Production-ready starter template for modern, self-hosted Next.js apps with Type
 - **Node 24 LTS** optimized Docker setup
 
 ### Developer Experience
+
 - **Prettier** with import sorting and Tailwind class sorting
 - **ESLint** with Next.js, React, and TypeScript rules
 - **Husky + lint-staged** for pre-commit quality checks
@@ -19,6 +21,7 @@ Production-ready starter template for modern, self-hosted Next.js apps with Type
 - **GitHub Actions** CI/CD pipeline
 
 ### Production Ready
+
 - Error boundaries (`error.tsx`, `global-error.tsx`, `not-found.tsx`)
 - Loading states with Streaming and Suspense
 - Typed environment variables with validation
@@ -27,6 +30,7 @@ Production-ready starter template for modern, self-hosted Next.js apps with Type
 - SEO-friendly metadata structure
 
 ### Comprehensive Utilities
+
 - **21+ Custom Hooks** - Storage, fetching, events, timing, DOM utilities
 - **40+ Date/Time Functions** - Formatting, parsing, arithmetic, validation
 - **Type-Safe Helpers** - String, number, promise, validation (Zod)
@@ -34,6 +38,7 @@ Production-ready starter template for modern, self-hosted Next.js apps with Type
 - **MDX utilities** for content parsing
 
 ### Example Implementations
+
 - Server Actions with validation
 - Route Handlers (API routes)
 - Dynamic imports for code splitting
@@ -91,6 +96,7 @@ nextjs-template/
 ## Quick Start
 
 ### Prerequisites
+
 - **Node.js** 24+ (Node 24 LTS recommended)
 - **pnpm** 12+ (install via `corepack enable`)
 
@@ -215,6 +221,7 @@ pnpm test:ui
 ```
 
 Example test structure:
+
 ```
 __tests__/
 ├── utils/
@@ -241,6 +248,7 @@ docker run --rm -p 3000:3000 \
 ```
 
 ### Features
+
 - Multi-stage build for minimal image size
 - Optimized layer caching with pnpm
 - Next.js standalone output
@@ -282,6 +290,7 @@ Comprehensive guides in `docs/`:
 ## Examples
 
 ### Server Actions
+
 ```typescript
 // app/actions.ts
 'use server';
@@ -294,6 +303,7 @@ export async function submitForm(formData: FormData) {
 ```
 
 ### Route Handlers
+
 ```typescript
 // app/api/users/route.ts
 export async function GET(request: Request) {
@@ -303,6 +313,7 @@ export async function GET(request: Request) {
 ```
 
 ### Dynamic Imports
+
 ```typescript
 const HeavyComponent = dynamic(() => import('./HeavyComponent'), {
   loading: () => <div>Loading...</div>,
@@ -311,6 +322,7 @@ const HeavyComponent = dynamic(() => import('./HeavyComponent'), {
 ```
 
 ### Streaming with Suspense
+
 ```typescript
 <Suspense fallback={<Loading />}>
   <AsyncComponent />
@@ -324,12 +336,14 @@ See `app/examples/` for full working examples.
 ⚠️ **Important:** The components in `components/examples/ui/` are **reference examples**, not production components.
 
 They demonstrate:
+
 - Accessibility patterns (ARIA, keyboard navigation)
 - TypeScript best practices
 - Tailwind CSS styling
 - Component testing
 
 **For your app, you should:**
+
 1. Build your own components from scratch
 2. Use a UI library (shadcn/ui, Radix UI, Headless UI)
 3. Copy and heavily customize these examples
@@ -361,6 +375,7 @@ MIT
 ## Credits
 
 Built with best practices from:
+
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Vercel React Best Practices](https://vercel.com/blog/how-react-18-improves-application-performance)
 - [Web Interface Guidelines](https://interface-guidelines.vercel.app/)

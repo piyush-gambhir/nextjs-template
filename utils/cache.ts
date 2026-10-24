@@ -3,13 +3,14 @@ import { cache } from 'react';
 /**
  * React.cache() - Request-level memoization for Server Components
  *
- * React.cache() deduplicates requests within a single server render.
- * It's useful for:
+ * React.cache() deduplicates requests within a single server render. It's useful for:
+ *
  * - Preventing duplicate database queries in the same request
  * - Sharing data across Server Components without prop drilling
  * - Optimizing expensive computations
  *
  * IMPORTANT:
+ *
  * - Only works in Server Components (not Client Components)
  * - Cache is per-request (cleared after each request)
  * - For cross-request caching, use LRU cache or database cache
@@ -21,8 +22,8 @@ import { cache } from 'react';
 /**
  * Example 1: Deduplicated database query
  *
- * If multiple components call getUser(1), React will only execute
- * the function once per request and return the cached result.
+ * If multiple components call getUser(1), React will only execute the function once per request and
+ * return the cached result.
  */
 export const getUser = cache(async (userId: string) => {
   console.log(`[Server] Fetching user ${userId}`);
@@ -40,8 +41,8 @@ export const getUser = cache(async (userId: string) => {
 /**
  * Example 2: Deduplicated API call
  *
- * Multiple components can safely call this function without
- * worrying about making duplicate API requests.
+ * Multiple components can safely call this function without worrying about making duplicate API
+ * requests.
  */
 export const fetchPosts = cache(async () => {
   console.log('[Server] Fetching posts from API');
@@ -57,8 +58,8 @@ export const fetchPosts = cache(async () => {
 /**
  * Example 3: Deduplicated expensive computation
  *
- * Cache the result of expensive operations that might be called
- * multiple times during a single render.
+ * Cache the result of expensive operations that might be called multiple times during a single
+ * render.
  */
 export const computeExpensiveData = cache(async (input: number) => {
   console.log(`[Server] Computing expensive data for input: ${input}`);
@@ -75,8 +76,8 @@ export const computeExpensiveData = cache(async (input: number) => {
 /**
  * Example 4: Cross-request caching with LRU
  *
- * For data that should be cached across multiple requests,
- * use an LRU cache instead of React.cache().
+ * For data that should be cached across multiple requests, use an LRU cache instead of
+ * React.cache().
  *
  * Install: pnpm add lru-cache
  */

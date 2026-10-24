@@ -7,6 +7,7 @@ import { cn } from '@/utils/cn';
  * Accessible Input Component
  *
  * Features:
+ *
  * - Proper label association
  * - Error state handling
  * - Helper text support
@@ -26,17 +27,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
-    {
-      label,
-      error,
-      helperText,
-      fullWidth = false,
-      className,
-      id,
-      required,
-      disabled,
-      ...props
-    },
+    { label, error, helperText, fullWidth = false, className, id, required, disabled, ...props },
     ref,
   ) => {
     const inputId = id || `input-${Math.random().toString(36).substr(2, 9)}`;
@@ -53,9 +44,19 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className={cn('flex flex-col gap-1.5', fullWidth && 'w-full')}>
         {label && (
-          <label htmlFor={inputId} className="text-sm font-medium">
+          <label
+            htmlFor={inputId}
+            className="text-sm font-medium"
+          >
             {label}
-            {required && <span className="ml-1 text-red-500" aria-label="required">*</span>}
+            {required && (
+              <span
+                className="ml-1 text-red-500"
+                aria-label="required"
+              >
+                *
+              </span>
+            )}
           </label>
         )}
         <input
@@ -69,12 +70,19 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           {...props}
         />
         {error && (
-          <p id={errorId} className="text-sm text-red-600 dark:text-red-400" role="alert">
+          <p
+            id={errorId}
+            className="text-sm text-red-600 dark:text-red-400"
+            role="alert"
+          >
             {error}
           </p>
         )}
         {helperText && !error && (
-          <p id={helperId} className="text-sm text-gray-600 dark:text-gray-400">
+          <p
+            id={helperId}
+            className="text-sm text-gray-600 dark:text-gray-400"
+          >
             {helperText}
           </p>
         )}

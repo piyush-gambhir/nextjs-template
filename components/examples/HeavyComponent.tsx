@@ -3,10 +3,11 @@
 /**
  * Example: Heavy Component
  *
- * This component simulates a heavy component that should be lazy-loaded
- * using dynamic imports to reduce initial bundle size.
+ * This component simulates a heavy component that should be lazy-loaded using dynamic imports to
+ * reduce initial bundle size.
  *
  * Use dynamic imports for:
+ *
  * - Large components that aren't immediately visible
  * - Components with heavy dependencies
  * - Modals, dialogs, and popovers

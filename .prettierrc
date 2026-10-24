@@ -30,13 +30,14 @@
     "^@ui/(.*)$",
     "^[./]"
   ],
-  "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true,
-  "importOrderCaseInsensitive": true,
-  "importOrderGroupNamespaceSpecifiers": true,
-  "importOrderCombineTypeAndValueImports": true,
-  "importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy"],
-  "tailwindFunctions": ["clsx"],
+  "importOrderParserPlugins": [
+    "typescript",
+    "jsx",
+    "decorators-legacy"
+  ],
+  "tailwindFunctions": [
+    "clsx"
+  ],
   "tailwindPreserveWhitespace": false,
   "tailwindPreserveDuplicates": false,
   "plugins": [
@@ -45,6 +46,6 @@
     "prettier-plugin-sort-json",
     "prettier-plugin-packagejson",
     "prettier-plugin-tailwindcss"
-  ]
+  ],
+  "importOrderCaseSensitive": false
 }
-

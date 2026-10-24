@@ -7,6 +7,7 @@ Parallel and intercepting routes are advanced Next.js patterns for building comp
 Parallel routes allow you to render multiple pages in the same layout simultaneously. They're defined using `@folder` convention.
 
 ### Use Cases
+
 - Dashboard with multiple sections
 - Split view layouts
 - Conditional UI based on user state
@@ -135,12 +136,15 @@ export default function PhotoModal({ params }: { params: { id: string } }) {
   const router = useRouter();
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/80" onClick={() => router.back()}>
+    <div
+      className="fixed inset-0 z-50 bg-black/80"
+      onClick={() => router.back()}
+    >
       <div className="flex h-full items-center justify-center p-8">
         <div className="relative max-w-3xl rounded-lg bg-white p-6">
           <button
             onClick={() => router.back()}
-            className="absolute right-4 top-4 text-2xl"
+            className="absolute top-4 right-4 text-2xl"
           >
             ×
           </button>
@@ -164,7 +168,10 @@ export default function PhotoPage({ params }: { params: { id: string } }) {
   return (
     <div className="container mx-auto p-8">
       <h1 className="mb-4 text-2xl font-bold">Photo {params.id}</h1>
-      <img src={`/photos/${params.id}.jpg`} alt="Photo" />
+      <img
+        src={`/photos/${params.id}.jpg`}
+        alt="Photo"
+      />
     </div>
   );
 }
@@ -180,8 +187,14 @@ export default function Gallery() {
   return (
     <div className="grid grid-cols-3 gap-4">
       {[1, 2, 3, 4, 5, 6].map((id) => (
-        <Link key={id} href={`/photos/${id}`}>
-          <img src={`/photos/${id}.jpg`} alt={`Photo ${id}`} />
+        <Link
+          key={id}
+          href={`/photos/${id}`}
+        >
+          <img
+            src={`/photos/${id}.jpg`}
+            alt={`Photo ${id}`}
+          />
         </Link>
       ))}
     </div>
