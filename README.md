@@ -10,7 +10,7 @@ Production-ready starter template for modern, self-hosted Next.js apps with Type
 - **TypeScript** with strict mode enabled
 - **Tailwind CSS v4** for styling
 - **pnpm** for fast, efficient package management
-- **Node 24 LTS** optimized Docker setup
+- **Node 26.12.1** Docker setup
 
 ### Developer Experience
 
@@ -97,8 +97,8 @@ nextjs-template/
 
 ### Prerequisites
 
-- **Node.js** 24+ (Node 24 LTS recommended)
-- **pnpm** 12+ (install via `corepack enable`)
+- **Node.js** 26.12.1 locally and in Docker; 24.22.1 remains supported for Vercel
+- **pnpm** 12.15.0 (install separately with `npm install --global pnpm@12.15.0`)
 
 ### Installation
 
@@ -253,7 +253,7 @@ docker run --rm -p 3000:3000 \
 - Optimized layer caching with pnpm
 - Next.js standalone output
 - Non-root user for security
-- Node 24 LTS Alpine base
+- Node 26.12.1 Alpine base
 
 See `docs/docker.md` for advanced configuration.
 

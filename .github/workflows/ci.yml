@@ -13,6 +13,9 @@ concurrency:
 
 jobs:
   lint-and-format:
+    strategy:
+      matrix:
+        node: ['24.22.1', '26.12.1']
     runs-on: ubuntu-24.04-arm
     timeout-minutes: 15
     name: Lint and Format Check
@@ -23,11 +26,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
         with:
-          node-version: 24.22.1
+          node-version: ${{ matrix.node }}
       - name: Setup pnpm
         uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86
         with:
-          version: 12.11.2
+          version: 12.15.0
       - name: Get pnpm store directory
         shell: bash
         run: |
@@ -47,6 +50,9 @@ jobs:
         run: pnpm format:check
 
   test:
+    strategy:
+      matrix:
+        node: ['24.22.1', '26.12.1']
     runs-on: ubuntu-24.04-arm
     timeout-minutes: 15
     name: Tests
@@ -57,11 +63,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
         with:
-          node-version: 24.22.1
+          node-version: ${{ matrix.node }}
       - name: Setup pnpm
         uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86
         with:
-          version: 12.11.2
+          version: 12.15.0
       - name: Get pnpm store directory
         shell: bash
         run: |
@@ -88,6 +94,9 @@ jobs:
           flags: unittests
 
   build:
+    strategy:
+      matrix:
+        node: ['24.22.1', '26.12.1']
     runs-on: ubuntu-24.04-arm
     timeout-minutes: 30
     name: Build
@@ -98,11 +107,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
         with:
-          node-version: 24.22.1
+          node-version: ${{ matrix.node }}
       - name: Setup pnpm
         uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86
         with:
-          version: 12.11.2
+          version: 12.15.0
       - name: Get pnpm store directory
         shell: bash
         run: |
@@ -123,11 +132,14 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v7
         with:
-          name: build-output
+          name: build-output-${{ matrix.node }}
           path: .next/
           retention-days: 7
 
   type-check:
+    strategy:
+      matrix:
+        node: ['24.22.1', '26.12.1']
     runs-on: ubuntu-24.04-arm
     timeout-minutes: 15
     name: TypeScript Type Check
@@ -138,11 +150,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
         with:
-          node-version: 24.22.1
+          node-version: ${{ matrix.node }}
       - name: Setup pnpm
         uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86
         with:
-          version: 12.11.2
+          version: 12.15.0
       - name: Get pnpm store directory
         shell: bash
         run: |
@@ -159,6 +171,6 @@ jobs:
       - name: Generate Next.js route types
         run: pnpm exec next typegen
       - name: Run TypeScript type check
-        run: pnpm tsc --noEmit
+        run: pnpm typecheck
 permissions:
   contents: read

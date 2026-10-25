@@ -2,3 +2,7 @@ node_modules
 build
 .next
 .git
+
+# Local credentials must never enter the build context.
+.env
+.env.*
