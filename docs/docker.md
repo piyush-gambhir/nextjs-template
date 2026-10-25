@@ -1,6 +1,6 @@
 # Docker
 
-Production-ready Docker image using Node LTS (24) and Next.js standalone output.
+The Dockerfile builds and runs Next.js standalone output on Node 26.12.1 Alpine.
 
 ## Build
 
@@ -21,13 +21,17 @@ Open http://localhost:3000
 ## Notes
 
 - Multi-stage build: `deps` → `build` → `runner` keeps the final image small.
-- Uses Corepack to enable pnpm and `--frozen-lockfile` for deterministic installs.
+- Installs pnpm 12.15.0 explicitly with npm; dependency installation uses
+  `--frozen-lockfile --prod=false` so build tooling is available.
 - `next.config.ts` sets `output: 'standalone'` which supports full SSR/SSG/ISR/API routes.
 - Copies only `public/`, `.next/standalone/`, and `.next/static/` into the runtime image.
-- Runs as non-root user.
+- Runs `node server.js` as the nonroot `nextjs` user.
 - Alpine `libc6-compat` is installed for native module compatibility.
 
 ## Common env
 
-- `NEXT_PUBLIC_APP_URL` – base URL used by `absoluteUrl()` util.
-- For additional env, see `env.ts`.
+- `NEXT_PUBLIC_APP_URL`: base URL used by `absoluteUrl()`. Public Next.js variables
+  are compiled into browser bundles at build time; setting this only in
+  `docker run` does not replace values already embedded in the image.
+- The Docker context excludes `.env` and `.env.*`; pass runtime server variables
+  explicitly. For additional environment validation, see `env.ts`.
