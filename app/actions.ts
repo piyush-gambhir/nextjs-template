@@ -52,9 +52,6 @@ export async function authenticatedAction(data: { message: string }) {
     return { success: false, error: 'Message is required' };
   }
 
-  // Perform server-side operation
-  console.log('Processing message:', data.message);
-
   return { success: true, message: 'Action completed successfully' };
 }
 
