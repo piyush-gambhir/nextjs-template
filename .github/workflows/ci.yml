@@ -86,7 +86,7 @@ jobs:
         env:
           NEXT_PUBLIC_APP_URL: http://127.0.0.1:3000
       - name: Upload coverage reports
-        uses: codecov/codecov-action@v7
+        uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7
         if: ${{ always() && hashFiles('coverage/coverage-final.json') != '' }}
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
