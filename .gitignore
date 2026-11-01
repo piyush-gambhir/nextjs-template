@@ -56,3 +56,6 @@ next-env.d.ts
 # .agent/
 # .agents/
 # skills/
+
+# Local bundle graph exports
+/.bundle-analysis/

@@ -1,0 +1,298 @@
+{
+  "apps": [
+    {
+      "analysis": {
+        "candidates": [],
+        "client_dependency_scan": [],
+        "coverage": {
+          "action_like_identities_requiring_source_mapping": 2,
+          "attribution_conflicts": 0,
+          "groups_without_joined_trigger": 0,
+          "limits": [
+            "All minimum cuts are provisional; optionality, module side effects and actual mount/preload timing have not been behavior-tested.",
+            "Source-to-output attribution is distinct from exact module identity; ambiguous community bytes are excluded from community ranking.",
+            "No production browser requests, cold-navigation timing, interaction timing, Web Vitals or emitted implementation contents were inspected.",
+            "Potential Server Action stubs and ownership matches remain unverified until source-to-reference mapping and emitted contents are inspected."
+          ],
+          "sync_dependencies_absent_from_emitted_subgraph": 0,
+          "unknown_route_entries": [],
+          "unknown_route_groups": [],
+          "unsupported_client_js_outputs": []
+        },
+        "duplicate_browser_versions": {},
+        "graph": {
+          "async_edges": 0,
+          "communities": 6,
+          "emitted_members": 175,
+          "parameters": "NetworkX Louvain, resolution=1, weight=1 per distinct directed edge/kind before symmetrization, seed=0; seed=1 stability comparison.",
+          "ranked_communities": [
+            {
+              "community": 1,
+              "largest_packages": [
+                ["next", 94591],
+                ["(application)", 926],
+                ["@swc/helpers", 397]
+              ],
+              "modules": 60,
+              "unambiguous_compressed_attribution": 95914
+            },
+            {
+              "community": 3,
+              "largest_packages": [["next", 35220]],
+              "modules": 33,
+              "unambiguous_compressed_attribution": 35220
+            },
+            {
+              "community": 4,
+              "largest_packages": [["next", 23990]],
+              "modules": 30,
+              "unambiguous_compressed_attribution": 23990
+            },
+            {
+              "community": 0,
+              "largest_packages": [["next", 10267]],
+              "modules": 18,
+              "unambiguous_compressed_attribution": 10267
+            },
+            {
+              "community": 5,
+              "largest_packages": [["next", 8661]],
+              "modules": 20,
+              "unambiguous_compressed_attribution": 8661
+            },
+            {
+              "community": 2,
+              "largest_packages": [["next", 4699]],
+              "modules": 14,
+              "unambiguous_compressed_attribution": 4699
+            }
+          ],
+          "stable_partition_across_seeds": false,
+          "sync_edges": 559,
+          "unmapped_or_ambiguous_compressed_attribution": 44602
+        },
+        "meta": {
+          "module_index_hash": "06beceae369487ba",
+          "route_count": 6,
+          "schema_version": 1,
+          "selected_routes": 6,
+          "snapshot_name": "audit-20261029-baseline",
+          "type": "meta"
+        },
+        "metric": "Sum of attributed compressed bytes for JavaScript outputs with [client-fs] provenance; includes deferred outputs and is not measured transfer or initial-load size.",
+        "possible_server_only_leaks": [],
+        "record_counts": {
+          "group": 47,
+          "meta": 1,
+          "module": 1309,
+          "output": 719,
+          "part": 2642,
+          "route": 6
+        },
+        "route_stats": [
+          {
+            "bootstrap_js_compressed_attribution": 164653,
+            "client_js_compressed_attribution": 223353,
+            "client_js_files": 11,
+            "entries_coverage": "exact",
+            "groups_coverage": "exact",
+            "route": "/"
+          },
+          {
+            "bootstrap_js_compressed_attribution": 164653,
+            "client_js_compressed_attribution": 215426,
+            "client_js_files": 10,
+            "entries_coverage": "exact",
+            "groups_coverage": "exact",
+            "route": "/_not-found"
+          },
+          {
+            "bootstrap_js_compressed_attribution": 164653,
+            "client_js_compressed_attribution": 215426,
+            "client_js_files": 10,
+            "entries_coverage": "exact",
+            "groups_coverage": "exact",
+            "route": "/examples/streaming"
+          },
+          {
+            "bootstrap_js_compressed_attribution": 0,
+            "client_js_compressed_attribution": 0,
+            "client_js_files": 0,
+            "entries_coverage": "exact",
+            "groups_coverage": "exact",
+            "route": "/api/example"
+          },
+          {
+            "bootstrap_js_compressed_attribution": 0,
+            "client_js_compressed_attribution": 0,
+            "client_js_files": 0,
+            "entries_coverage": "exact",
+            "groups_coverage": "exact",
+            "route": "/api/og"
+          },
+          {
+            "bootstrap_js_compressed_attribution": 0,
+            "client_js_compressed_attribution": 0,
+            "client_js_files": 0,
+            "entries_coverage": "exact",
+            "groups_coverage": "exact",
+            "route": "/favicon.ico"
+          }
+        ],
+        "suppressed_matches": [],
+        "top_packages": [
+          ["next", 216862],
+          ["(application)", 6094],
+          ["@swc/helpers", 397]
+        ],
+        "top_sources": [
+          {
+            "compressed_attribution": 63930,
+            "routes": ["/", "/_not-found", "/examples/streaming"],
+            "source": "node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.production.js"
+          },
+          {
+            "compressed_attribution": 39434,
+            "routes": ["/", "/_not-found", "/examples/streaming"],
+            "source": "node_modules/next/dist/build/polyfills/polyfill-nomodule.js"
+          },
+          {
+            "compressed_attribution": 7773,
+            "routes": ["/", "/_not-found", "/examples/streaming"],
+            "source": "node_modules/next/dist/compiled/react-server-dom-turbopack/cjs/react-server-dom-turbopack-client.browser.production.js"
+          },
+          {
+            "compressed_attribution": 6405,
+            "routes": ["/", "/_not-found", "/examples/streaming"],
+            "source": "node_modules/next/dist/client/components/segment-cache/cache.js"
+          },
+          {
+            "compressed_attribution": 3997,
+            "routes": ["/", "/_not-found", "/examples/streaming"],
+            "source": "node_modules/next/dist/client/components/render-tree.js"
+          },
+          {
+            "compressed_attribution": 3970,
+            "routes": ["/", "/_not-found", "/examples/streaming"],
+            "source": "node_modules/next/dist/client/components/segment-cache/scheduler.js"
+          },
+          {
+            "compressed_attribution": 2971,
+            "routes": ["/", "/_not-found", "/examples/streaming"],
+            "source": "node_modules/next/dist/compiled/react/cjs/react.production.js"
+          },
+          {
+            "compressed_attribution": 2298,
+            "routes": ["/", "/_not-found", "/examples/streaming"],
+            "source": "node_modules/next/dist/lib/constants.js"
+          },
+          {
+            "compressed_attribution": 2177,
+            "routes": ["/", "/_not-found", "/examples/streaming"],
+            "source": "node_modules/next/dist/client/components/router-reducer/reducers/server-action-reducer.js"
+          },
+          {
+            "compressed_attribution": 2121,
+            "routes": ["/", "/_not-found", "/examples/streaming"],
+            "source": "node_modules/next/dist/client/components/app-router.js"
+          },
+          {
+            "compressed_attribution": 2118,
+            "routes": ["/", "/_not-found", "/examples/streaming"],
+            "source": "[turbopack]/shared/runtime/runtime-utils.ts"
+          },
+          {
+            "compressed_attribution": 2106,
+            "routes": ["/"],
+            "source": "node_modules/next/dist/shared/lib/get-img-props.js"
+          },
+          {
+            "compressed_attribution": 2010,
+            "routes": ["/", "/_not-found", "/examples/streaming"],
+            "source": "node_modules/next/dist/client/components/layout-router.js"
+          },
+          {
+            "compressed_attribution": 1971,
+            "routes": ["/", "/_not-found", "/examples/streaming"],
+            "source": "node_modules/next/dist/client/components/segment-cache/optimistic-routes.js"
+          },
+          {
+            "compressed_attribution": 1952,
+            "routes": ["/", "/_not-found", "/examples/streaming"],
+            "source": "node_modules/next/dist/client/components/segment-cache/decode-server-response.js"
+          },
+          {
+            "compressed_attribution": 1949,
+            "routes": ["/", "/_not-found", "/examples/streaming"],
+            "source": "node_modules/next/dist/client/components/app-router-state.js"
+          },
+          {
+            "compressed_attribution": 1943,
+            "routes": ["/", "/_not-found", "/examples/streaming"],
+            "source": "node_modules/next/dist/client/components/router-reducer/fetch-server-response.js"
+          },
+          {
+            "compressed_attribution": 1588,
+            "routes": ["/", "/_not-found", "/examples/streaming"],
+            "source": "node_modules/next/dist/client/app-dir/link.js"
+          },
+          {
+            "compressed_attribution": 1562,
+            "routes": ["/", "/_not-found", "/examples/streaming"],
+            "source": "node_modules/next/dist/client/app-index.js"
+          },
+          {
+            "compressed_attribution": 1458,
+            "routes": ["/", "/_not-found", "/examples/streaming"],
+            "source": "node_modules/next/dist/compiled/scheduler/cjs/scheduler.production.js"
+          }
+        ],
+        "unique_client_js_compressed_attribution": 223353
+      },
+      "declared_next": "16.4.3",
+      "error": null,
+      "graph_sha256": "2735aedad95b6c66aef6ab0d7585b73fc065acc47dee1ffbebe9d862893c5892",
+      "installed_next": "16.4.3",
+      "path": ".",
+      "snapshot": "audit-20261029-baseline"
+    }
+  ],
+  "base": "main",
+  "base_sha": "1cf159b44e548f619b233f63cb4ba43327b4d962",
+  "date": "2026-10-29",
+  "mode": "audit",
+  "publication_blocker": null,
+  "repository": "piyush-gambhir/nextjs-template",
+  "verification": [
+    {
+      "app": ".",
+      "command": "pnpm exec next typegen",
+      "exit_code": 0,
+      "seconds": 0.4
+    },
+    {
+      "app": ".",
+      "command": "pnpm run typecheck",
+      "exit_code": 0,
+      "seconds": 0.5
+    },
+    {
+      "app": ".",
+      "command": "pnpm run lint",
+      "exit_code": 0,
+      "seconds": 1.7
+    },
+    {
+      "app": "(repository)",
+      "command": "git diff --check",
+      "exit_code": 0,
+      "seconds": 0.0
+    },
+    {
+      "app": ".",
+      "command": "pnpm --silent run bundle:export --snapshot audit-20261029-baseline (4724 JSON records validated)",
+      "exit_code": 0,
+      "seconds": 0.8
+    }
+  ]
+}

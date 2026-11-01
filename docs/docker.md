@@ -1,6 +1,6 @@
 # Docker
 
-The Dockerfile builds and runs Next.js standalone output on Node 26.12.1 Alpine.
+The Dockerfile builds and runs Next.js standalone output on Node 26.13.0 Alpine.
 
 ## Build
 
